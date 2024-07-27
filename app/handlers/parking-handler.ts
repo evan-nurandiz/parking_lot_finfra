@@ -38,8 +38,9 @@ class ParkingHandler extends DataFactory {
             default:
                 if (defineCommand[0]) {
                     !this.parkingCommand.includes(defineCommand[0]) ? console.log('command not found') : console.log('command not exist')
+                    throw new Error('command not found')
                 }
-
+                
                 return true;
         }
     }

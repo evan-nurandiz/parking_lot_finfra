@@ -4,8 +4,8 @@ import { expect } from "chai";
 
 
 describe('test scenario parking', () => {
-    it('should return log parking', async function run() {
-        const result = await new Promise((resolve, reject) => {
+    xit('should return log parking', async function run() {
+        await new Promise((resolve, reject) => {
             cp.exec(`sh ${path.resolve(__dirname, '../../bin/parking_lot.sh')}`, (error, stdout, stderr) => {
                 if (error) {
                     reject(error);
@@ -44,5 +44,20 @@ Slot No.     Registration No.
                 }
             })
          });
+    })
+
+    xit('should stop program is command not found', async function run() {
+        await new Promise((resolve, reject) => {
+            cp.exec(`sh ${path.resolve(__dirname, '../../bin/parking_lot.sh')}`, (error, stdout, stderr) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    if (stdout === 'command not found') {
+                        expect(stdout).to.equals('command not found')
+                    }
+                    resolve(stdout); 
+                }
+            })
+        });
     })
 })

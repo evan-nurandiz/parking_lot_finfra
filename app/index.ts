@@ -3,7 +3,7 @@ import path from 'path';
 import ParkingHandler from './handlers/parking-handler';
 import { fileToCommandLine } from './helpers/file-helper';
 
-const file = readFileSync(path.join(__dirname, 'fixtures/file_input.txt'), 'utf-8');
+const file = readFileSync(path.join(__dirname, '../fixtures/file_input.txt'), 'utf-8');
 
 try {
     if (!file) {
@@ -19,5 +19,5 @@ try {
         })
     }
 } catch (err) {
-    throw new Error(err)
+    console.log(err)
 }
