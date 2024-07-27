@@ -1,0 +1,48 @@
+import path from "path";
+import * as cp from 'child_process';
+import { expect } from "chai";
+
+
+describe('test scenario parking', () => {
+    it('should return log parking', async function run() {
+        const result = await new Promise((resolve, reject) => {
+            cp.exec(`sh ${path.resolve(__dirname, '../../bin/parking_lot.sh')}`, (error, stdout, stderr) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    expect(stdout).to.equal(`Created parking lot with 6 slots
+Allocated slot number: 1
+Allocated slot number: 2
+Allocated slot number: 3
+Allocated slot number: 4
+Allocated slot number: 5
+Allocated slot number: 6
+Registration number KA-01-HH-3141 with Slot Number 6 is free with Charge 40
+Slot No.     Registration No.
+1     KA-01-HH-1234
+2     KA-01-HH-9999
+3     KA-01-BB-0001
+4     KA-01-HH-7777
+5     KA-01-HH-2701
+Allocated slot number: 6
+Sorry, parking lot is full
+Registration number KA-01-HH-1234 with Slot Number 1 is free with Charge 40
+Registration number KA-01-BB-0001 with Slot Number 3 is free with Charge 60
+Registration number DL-12-AA-9999 not found
+Allocated slot number: 1
+Allocated slot number: 3
+Sorry, parking lot is full
+Slot No.     Registration No.
+1     KA-09-HH-0987
+2     KA-01-HH-9999
+3     CA-09-IO-1111
+4     KA-01-HH-7777
+5     KA-01-HH-2701
+6     KA-01-P-333
+`)
+                    resolve(stdout); 
+                }
+            })
+         });
+    })
+})
