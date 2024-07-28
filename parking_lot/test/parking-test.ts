@@ -1,6 +1,7 @@
 import path from "path";
 import * as cp from 'child_process';
 import { expect } from "chai";
+import ParkingHandler from "../handlers/parking-handler";
 
 
 describe('test scenario parking', () => {
@@ -59,5 +60,13 @@ Slot No.     Registration No.
                 }
             })
         });
+    })
+
+    xit('should calculate parking charge', function run() {
+        const hour = 4;
+        const parkSize = 8;
+        const handler = new ParkingHandler(parkSize);
+        const fare = handler.calculateCharge(hour);
+        expect(fare).to.equal(30)
     })
 })
