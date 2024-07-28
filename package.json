@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'app/test/*.ts'",
+    "start": "ts-node ./parking_lot/index.ts",
+    "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'parking_lot/test/*.ts'",
     "build": "tsc",
     "watch:build": "tsc --watch"
   },

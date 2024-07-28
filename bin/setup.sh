@@ -4,3 +4,5 @@ sudo apt install git
 sudo apt install npm
 npm install -g typescript
 npm install -g ts-node
+npm run build
+npm test
