@@ -48,7 +48,7 @@ class ParkingHandler extends DataFactory {
     calculateCharge = (hour: number) => {
         if (hour <= 2) return 10
 
-        if (hour > 2) return 10 + ((hour - 1) * 10)
+        if (hour > 2) return 10 + ((hour - 2) * 10)
     }
 
     parkCar = (key: string) => {
