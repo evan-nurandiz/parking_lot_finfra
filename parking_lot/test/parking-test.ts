@@ -5,7 +5,7 @@ import ParkingHandler from "../handlers/parking-handler";
 
 
 describe('test scenario parking', () => {
-    xit('should return log parking', async function run() {
+    it('should return log parking', async function run() {
         await new Promise((resolve, reject) => {
             cp.exec(`sh ${path.resolve(__dirname, '../../bin/parking_lot.sh')}`, (error, stdout, stderr) => {
                 if (error) {
@@ -62,7 +62,7 @@ Slot No.     Registration No.
         });
     })
 
-    xit('should calculate parking charge', function run() {
+    it('should calculate parking charge', function run() {
         const hour = 4;
         const parkSize = 8;
         const handler = new ParkingHandler(parkSize);
